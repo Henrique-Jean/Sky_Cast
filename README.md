@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# ⛈️ SKY_CAST - Real-Time Weather Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Status:** Online & Functional via Vercel.
+> A modern, glassmorphism-styled weather dashboard connecting to OpenWeatherMap API.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** (https://sky-cast-eight-beryl.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚡ The Tech Stack
+| Tech | Role |
+| :--- | :--- |
+| **React 18** | UI Library |
+| **TypeScript** | Type Safety & Logic |
+| **Tailwind CSS** | Glassmorphism & Responsive Design |
+| **Axios** | API Requests & Data Fetching |
+| **OpenWeatherMap** | Real-time Data Source |
 
-## Expanding the ESLint configuration
+## 🚀 Key Features
+* **Real-Time Data:** Fetches live temperature, humidity, wind speed, and "feels like" metrics.
+* **Smart Error Handling:** Friendly UI feedback when a city is not found or API fails.
+* **Glassmorphism UI:** Modern, translucent aesthetics using Tailwind's backdrop-blur.
+* **Secure Architecture:** API Keys protected via Environment Variables (`.env`).
+* **Input Validation:** Prevents empty searches and handles keyboard events (Enter key).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ How to Run Locally
+Since this project uses sensitive API Keys, you need to set up your own environment.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  Clone the repo:
+    ```bash
+    git clone [https://github.com/Henrique-Jean/sky-cast.git](https://github.com/Henrique-Jean/sky-cast.git)
+    cd sky-cast
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  **Setup Environment Variables:**
+    Create a `.env` file in the root directory and add your OpenWeatherMap Key:
+    ```env
+    VITE_API_KEY=your_api_key_here
+    ```
+4.  Start the app:
+    ```bash
+    npm run dev
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧠 Lessons Learned
+* **API Integration:** Mastered `async/await` patterns with Axios to handle external data.
+* **State Management:** Used `useState` to handle loading states (`isLoading`), data, and errors.
+* **Security:** Learned the importance of `.env` files to keep keys out of public repositories.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*Developed by Henrique Jean.*
